@@ -1,11 +1,30 @@
 package br.com.projetoNarah.Vendas.domain.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
 public class Cliente {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column
 	private Integer id;
+	
+	@Column(name="nome", length = 100)
 	private String nome;
 	
+	public Cliente() {
+
+	}
+
 	public Cliente(String string) {
+
 	}
 
 	public Cliente(Integer id, String nome) {
