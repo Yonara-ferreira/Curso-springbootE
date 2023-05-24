@@ -11,7 +11,7 @@ import br.com.projetoNarah.Vendas.domain.entity.Cliente;
 
 public interface Clientes extends JpaRepository<Cliente, Integer> {
 
-	@Query(value = " select * from cliente c  where c.nome like '%:nome%' ")
+	@Query(value = " select * from cliente c  where c.nome like '%:nome%'  ", nativeQuery = true)
 	List<Cliente> findByNomeLike(@Param("nome") String nome);
 	
 	@Query(" delete from Cliente c where c.nome =:nome ")
@@ -20,7 +20,7 @@ public interface Clientes extends JpaRepository<Cliente, Integer> {
 	
 	boolean existsByNome(String nome);
 	
-	@Query(" Select c from Cliente c left join fetch c.pedidos where c.id = :id ")
+	@Query(" select c from Cliente c left join fetch c.pedidos where c.id = :id")
 	Cliente findClienteFetchPedidos(@Param("id") Integer id);
 	
 	

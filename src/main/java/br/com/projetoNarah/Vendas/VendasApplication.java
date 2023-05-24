@@ -2,9 +2,6 @@ package br.com.projetoNarah.Vendas;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
-
-import javax.naming.spi.DirStateFactory.Result;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -40,6 +37,8 @@ public class VendasApplication {
 			Cliente cliente = clientes.findClienteFetchPedidos(narah.getId());
 			System.out.println(cliente);
 			System.out.println(cliente.getPedidos());
+			
+			pedidos.findByCliente(narah).forEach(System.out::println);
 
 //			List<Cliente> result = clientes.findByNomeLike("Dougllas");
 //			result.forEach(System.out::println);
